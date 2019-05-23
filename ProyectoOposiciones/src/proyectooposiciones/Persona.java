@@ -10,20 +10,28 @@ package proyectooposiciones;
  * @author dam101
  */
 public class Persona {
+    int nOpo;
     String nombre;
     String dni;
+    float experiencia;
+    float titulos;
+    float otros;
+    float totalMeritos;
     float nota1;
     float nota2;
     float totalNota;
-    int nOpo;
 
-    public Persona(String nombre, String dni, float nota1, float nota2, float totalNota, int nOpo) {
+    public Persona(int nOpo, String nombre, String dni, float experiencia, float titulos, float otros, float totalMeritos, float nota1, float nota2, float totalNota) {
+        this.nOpo = nOpo;
         this.nombre = nombre;
         this.dni = dni;
+        this.experiencia = experiencia;
+        this.titulos = titulos;
+        this.otros = otros;
+        this.totalMeritos = experiencia + titulos + otros;
         this.nota1 = nota1;
         this.nota2 = nota2;
         this.totalNota = nota1 + nota2;
-        this.nOpo = nOpo;
     }
 
     public String getNombre() {
@@ -49,4 +57,22 @@ public class Persona {
     public float getTotalNota() {
         return totalNota;
     }
+
+    public float getExperiencia() {
+        return experiencia;
+    }
+
+    public float getTitulos() {
+        return titulos;
+    }
+
+    public float getOtros() {
+        return otros;
+    }
+
+    public float getTotalMeritos() {
+        return totalMeritos;
+    }
+    
+    
 }
