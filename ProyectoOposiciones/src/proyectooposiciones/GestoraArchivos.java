@@ -25,10 +25,11 @@ public class GestoraArchivos {
     private static Persona[] leerOpositores() {
         BufferedReader lectorNotas = null;
         BufferedReader lectorMeritos = null;
+        Persona[] opositores = null;
         try {
             lectorNotas = new BufferedReader(new FileReader(ARCHIVO_NOTAS));
             lectorMeritos = new BufferedReader(new FileReader(ARCHIVO_MERITOS));
-            ArrayList<Persona> losPersonasTemp = new ArrayList();
+            ArrayList<Persona> lasPersonasTemp = new ArrayList();
             String lineaNotas = lectorNotas.readLine();
             String lineaMeritos = lectorNotas.readLine();
             
@@ -48,7 +49,7 @@ public class GestoraArchivos {
                 float totalNota = Float.parseFloat(datosNotas[5]);
             }
             
-            return losPersonasTemp.toArray(new String[losPersonasTemp.size()]);
+            opositores = lasPersonasTemp.toArray(new Persona[lasPersonasTemp.size()]);
             
         } catch (IOException ex) {
             System.out.println("Meh");
@@ -60,5 +61,6 @@ public class GestoraArchivos {
                 Logger.getLogger(GestoraArchivos.class.getName()).log(Level.SEVERE, null, ex);
             }
         }
+        return opositores;
     }
 }
