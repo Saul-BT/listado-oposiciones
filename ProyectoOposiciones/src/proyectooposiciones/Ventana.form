@@ -49,10 +49,10 @@
               </Group>
               <EmptySpace max="32767" attributes="0"/>
               <Group type="103" groupAlignment="0" attributes="0">
-                  <Component id="jBotonBuscar" alignment="1" min="-2" pref="115" max="-2" attributes="0"/>
-                  <Component id="jBotonCancelar" alignment="1" min="-2" pref="115" max="-2" attributes="0"/>
+                  <Component id="jBotonBuscar" min="-2" pref="115" max="-2" attributes="0"/>
+                  <Component id="jBotonCancelar" min="-2" pref="115" max="-2" attributes="0"/>
               </Group>
-              <EmptySpace max="-2" attributes="0"/>
+              <EmptySpace min="-2" pref="43" max="-2" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -73,25 +73,25 @@
                       <Component id="jLabel3" min="-2" max="-2" attributes="0"/>
                   </Group>
               </Group>
-              <EmptySpace min="-2" pref="15" max="-2" attributes="0"/>
-              <Group type="103" groupAlignment="3" attributes="0">
-                  <Component id="jLabel1" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="jCTextoNif" alignment="3" min="-2" max="-2" attributes="0"/>
-              </Group>
+              <EmptySpace min="-2" pref="14" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="102" attributes="0">
-                      <EmptySpace max="-2" attributes="0"/>
-                      <Component id="jBotonCancelar" min="-2" max="-2" attributes="0"/>
-                  </Group>
-                  <Group type="102" alignment="0" attributes="0">
+                      <Group type="103" groupAlignment="3" attributes="0">
+                          <Component id="jLabel1" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="jCTextoNif" alignment="3" min="-2" max="-2" attributes="0"/>
+                      </Group>
                       <EmptySpace min="-2" pref="15" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="3" attributes="0">
                           <Component id="jLabel2" alignment="3" min="-2" max="-2" attributes="0"/>
                           <Component id="jTextoApellidos" alignment="3" min="-2" max="-2" attributes="0"/>
                       </Group>
                   </Group>
+                  <Group type="102" attributes="0">
+                      <EmptySpace min="-2" pref="25" max="-2" attributes="0"/>
+                      <Component id="jBotonCancelar" min="-2" max="-2" attributes="0"/>
+                  </Group>
               </Group>
-              <EmptySpace pref="25" max="32767" attributes="0"/>
+              <EmptySpace pref="26" max="32767" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
