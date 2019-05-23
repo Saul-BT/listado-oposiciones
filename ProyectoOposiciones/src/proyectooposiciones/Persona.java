@@ -11,37 +11,42 @@ package proyectooposiciones;
  */
 public class Persona {
     String nombre;
-    String apellido1;
-    String apellido2;
     String dni;
-    int numero_opo;
+    float nota1;
+    float nota2;
+    float totalNota;
+    int nOpo;
 
-    public Persona(String nombre, String apellido1, String apellido2, String dni, int numero_opo) {
+    public Persona(String nombre, String dni, float nota1, float nota2, float totalNota, int nOpo) {
         this.nombre = nombre;
-        this.apellido1 = apellido1;
-        this.apellido2 = apellido2;
         this.dni = dni;
-        this.numero_opo = numero_opo;
+        this.nota1 = nota1;
+        this.nota2 = nota2;
+        this.totalNota = nota1 + nota2;
+        this.nOpo = nOpo;
     }
 
     public String getNombre() {
         return nombre;
     }
 
-    public String getApellido1() {
-        return apellido1;
-    }
-
-    public String getApellido2() {
-        return apellido2;
-    }
-
     public String getDni() {
         return dni;
     }
 
-    public int getNumero_opo() {
-        return numero_opo;
+    public int getnOpo() {
+        return nOpo;
     }
     
+    public float getNota1() {
+        return nota1;
+    }
+
+    public float getNota2() {
+        return nota2;
+    }
+
+    public float getTotalNota() {
+        return totalNota;
+    }
 }
