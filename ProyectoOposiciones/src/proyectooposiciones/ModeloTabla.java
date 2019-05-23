@@ -20,8 +20,6 @@ public class ModeloTabla extends DefaultTableModel {
         this.lasPersonas = lasPersonas;
     }
     
-    
-
     @Override
     public int getRowCount() {
         return lasPersonas == null ? 0 : lasPersonas.length;
@@ -48,7 +46,12 @@ public class ModeloTabla extends DefaultTableModel {
     @Override
     public Class<?> getColumnClass(int columnIndex) {
         Class<?>[] clases = {
-            
+            int.class,
+            String.class,
+            String.class,
+            float.class,
+            float.class,
+            float.class
         };
         return clases[columnIndex];
     }
@@ -63,8 +66,15 @@ public class ModeloTabla extends DefaultTableModel {
         Persona persona = lasPersonas[rowIndex];
         if (persona == null) return null;
         Object[] informacionPersona = {
+            this.lasPersonas[rowIndex].getnOpo(),
+            this.lasPersonas[rowIndex].getDni(),
+            this.lasPersonas[rowIndex].getNombre(),
+            this.lasPersonas[rowIndex].getNota1(),
+            this.lasPersonas[rowIndex].getNota2(),
+            this.lasPersonas[rowIndex].getTotalNota(),
             
         };
+        return informacionPersona[columnIndex];
     }
     
 }
