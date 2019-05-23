@@ -10,8 +10,8 @@ package proyectooposiciones;
  * @author dam102
  */
 public class GestoraArchivos {
-    private static final String ARCHIVO_NOTAS = "./archivos";
-    private static final String ARCHIVO_MERITOS = "./archivos";
+    private static final String ARCHIVO_NOTAS = "./archivos/Listado_Aprobados.csv";
+    private static final String ARCHIVO_MERITOS = "./archivos/Listado_Meritos.csv";
     
     
 }
