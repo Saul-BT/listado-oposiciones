@@ -11,15 +11,15 @@ import javax.swing.table.TableModel;
 
 /**
  *
- * @author dam102
+ * @author dam101
  */
-public class ModeloTabla extends DefaultTableModel {
+public class ModeloTablaMeritos extends DefaultTableModel{
     private Persona[] lasPersonas;
 
-    public ModeloTabla(Persona[] lasPersonas) {
+    public ModeloTablaMeritos(Persona[] lasPersonas) {
         this.lasPersonas = lasPersonas;
     }
-    
+
     @Override
     public int getRowCount() {
         return lasPersonas == null ? 0 : lasPersonas.length;
@@ -27,7 +27,7 @@ public class ModeloTabla extends DefaultTableModel {
 
     @Override
     public int getColumnCount() {
-        return 6;
+        return 7;
     }
 
     @Override
@@ -36,8 +36,9 @@ public class ModeloTabla extends DefaultTableModel {
             "Nº Opo.",
             "NIF",
             "Apellidos y Nombre",
-            "Ejer Parte I",
-            "Ejer Parte II",
+            "Experiencia en",
+            "Titulos academicos",
+            "Cursos iguales o",
             "Total"
         };
         return nombres[columnIndex];
@@ -49,6 +50,7 @@ public class ModeloTabla extends DefaultTableModel {
             int.class,
             String.class,
             String.class,
+            float.class,
             float.class,
             float.class,
             float.class
@@ -64,17 +66,16 @@ public class ModeloTabla extends DefaultTableModel {
     @Override
     public Object getValueAt(int rowIndex, int columnIndex) {
         Persona persona = lasPersonas[rowIndex];
-        if (persona == null) return null;
-        Object[] informacionPersona = {
+        if(persona == null) return null;
+        Object[] informacionMeritos = {
             this.lasPersonas[rowIndex].getnOpo(),
             this.lasPersonas[rowIndex].getDni(),
             this.lasPersonas[rowIndex].getNombre(),
-            this.lasPersonas[rowIndex].getNota1(),
-            this.lasPersonas[rowIndex].getNota2(),
-            this.lasPersonas[rowIndex].getTotalNota(),
-            
+            this.lasPersonas[rowIndex].getExperiencia(),
+            this.lasPersonas[rowIndex].getTitulos(),
+            this.lasPersonas[rowIndex].getOtros(),
+            this.lasPersonas[rowIndex].getTotalMeritos(),
         };
-        return informacionPersona[columnIndex];
+        return informacionMeritos[columnIndex];
     }
-    
 }
