@@ -5,13 +5,60 @@
  */
 package proyectooposiciones;
 
+import java.io.BufferedReader;
+import java.io.FileReader;
+import java.io.IOException;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+
 /**
  *
  * @author dam102
  */
 public class GestoraArchivos {
+    private static Object[] l;
     private static final String ARCHIVO_NOTAS = "./archivos/Listado_Aprobados.csv";
     private static final String ARCHIVO_MERITOS = "./archivos/Listado_Meritos.csv";
     
-    
+    private static Persona[] leerOpositores() {
+        BufferedReader lectorNotas = null;
+        BufferedReader lectorMeritos = null;
+        try {
+            lectorNotas = new BufferedReader(new FileReader(ARCHIVO_NOTAS));
+            lectorMeritos = new BufferedReader(new FileReader(ARCHIVO_MERITOS));
+            ArrayList<Persona> losPersonasTemp = new ArrayList();
+            String lineaNotas = lectorNotas.readLine();
+            String lineaMeritos = lectorNotas.readLine();
+            
+            while (lineaNotas != null) {
+                String[] datosNotas = lineaNotas.split(";");
+                String[] datosMeritos = lineaMeritos.split(";");
+                
+                int nOpo = Integer.parseInt(datosNotas[0]);
+                String nombre = datosNotas[2];
+                String dni = datosNotas[1];
+                float experiencia = Float.parseFloat(datosMeritos[3]);
+                float titulos = Float.parseFloat(datosMeritos[4]);
+                float otros = Float.parseFloat(datosMeritos[5]);
+                float totalMeritos = Float.parseFloat(datosMeritos[6]);
+                float nota1 = Float.parseFloat(datosNotas[3]);
+                float nota2 = Float.parseFloat(datosNotas[4]);
+                float totalNota = Float.parseFloat(datosNotas[5]);
+            }
+            
+            return losPersonasTemp.toArray(new String[losPersonasTemp.size()]);
+            
+        } catch (IOException ex) {
+            System.out.println("Meh");
+        } finally {
+            try {
+                lectorNotas.close();
+                lectorMeritos.close();
+            } catch (IOException ex) {
+                Logger.getLogger(GestoraArchivos.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        }
+    }
 }
