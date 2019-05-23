@@ -13,10 +13,10 @@ import javax.swing.table.TableModel;
  *
  * @author dam102
  */
-public class ModeloTabla extends DefaultTableModel {
+public class ModeloTablaAprobados extends DefaultTableModel {
     private Persona[] lasPersonas;
 
-    public ModeloTabla(Persona[] lasPersonas) {
+    public ModeloTablaAprobados(Persona[] lasPersonas) {
         this.lasPersonas = lasPersonas;
     }
     
