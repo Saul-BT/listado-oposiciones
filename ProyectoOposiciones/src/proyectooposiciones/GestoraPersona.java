@@ -19,7 +19,7 @@ public class GestoraPersona {
     public Persona buscaPersona(String nOpo, String dni, String nombre) {
         if(nOpo != null){
            for(Persona persona : lasPersonas){
-               if(persona.getnOpo() == Integer.parseInt(nOpo)){
+               if(persona.getnumOpo()== Integer.parseInt(nOpo)){
                    return persona;
                }
            }
