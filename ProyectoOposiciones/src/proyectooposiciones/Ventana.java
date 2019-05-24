@@ -30,10 +30,10 @@ public class Ventana extends javax.swing.JFrame {
         jPanelGeneral = new javax.swing.JTabbedPane();
         jPanelAprobados = new javax.swing.JPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
-        jTable1 = new javax.swing.JTable();
+        jtAprobados = new javax.swing.JTable();
         jPanelMeritos = new javax.swing.JPanel();
         jScrollPane2 = new javax.swing.JScrollPane();
-        jTable2 = new javax.swing.JTable();
+        jtMeritos = new javax.swing.JTable();
         jBotonBuscar = new javax.swing.JButton();
         jBotonCancelar = new javax.swing.JButton();
         jLabel3 = new javax.swing.JLabel();
@@ -45,18 +45,15 @@ public class Ventana extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        jTable1.setModel(new javax.swing.table.DefaultTableModel(
+        jtAprobados.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null}
+
             },
             new String [] {
-                "Title 1", "Title 2", "Title 3", "Title 4"
+
             }
         ));
-        jScrollPane1.setViewportView(jTable1);
+        jScrollPane1.setViewportView(jtAprobados);
 
         javax.swing.GroupLayout jPanelAprobadosLayout = new javax.swing.GroupLayout(jPanelAprobados);
         jPanelAprobados.setLayout(jPanelAprobadosLayout);
@@ -77,18 +74,15 @@ public class Ventana extends javax.swing.JFrame {
 
         jPanelGeneral.addTab("LISTADO APROBADOS", jPanelAprobados);
 
-        jTable2.setModel(new javax.swing.table.DefaultTableModel(
+        jtMeritos.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null}
+
             },
             new String [] {
-                "Title 1", "Title 2", "Title 3", "Title 4"
+
             }
         ));
-        jScrollPane2.setViewportView(jTable2);
+        jScrollPane2.setViewportView(jtMeritos);
 
         javax.swing.GroupLayout jPanelMeritosLayout = new javax.swing.GroupLayout(jPanelMeritos);
         jPanelMeritos.setLayout(jPanelMeritosLayout);
@@ -245,8 +239,8 @@ public class Ventana extends javax.swing.JFrame {
     private javax.swing.JPanel jPanelMeritos;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
-    private javax.swing.JTable jTable1;
-    private javax.swing.JTable jTable2;
     private javax.swing.JTextField jTextoApellidos;
+    private javax.swing.JTable jtAprobados;
+    private javax.swing.JTable jtMeritos;
     // End of variables declaration//GEN-END:variables
 }
