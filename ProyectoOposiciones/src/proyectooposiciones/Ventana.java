@@ -5,18 +5,24 @@
  */
 package proyectooposiciones;
 
+import java.lang.reflect.Array;
+import proyectooposiciones.GestoraPersona;
+
 /**
  *
  * @author dam102
  */
 public class Ventana extends javax.swing.JFrame {
     GestoraArchivos gestora;
+    GestoraPersona gestoraP;
+    
     /**
      * Creates new form Ventana
      */
     public Ventana() {
         initComponents();
         GestoraArchivos gestora = new GestoraArchivos();
+        GestoraPersona gestoraP = new GestoraPersona();
         initComponents();
         jtAprobados.setModel(new ModeloTablaAprobados(gestora.leerOpositores()));
     }
@@ -272,32 +278,18 @@ public class Ventana extends javax.swing.JFrame {
         String nif = jCTextoNif.getText();
         String apellidos = jTextoApellidos.getText();
         
-        if(!jCTextoNumOpositor.getText().matches("(?i)[A-Z]{3}-\\d{2}")){
-            throw new Exception(jTextField1, "Hay que introducir un código de 3 letras y 2 dígitos numéricos");
+        if(!jCTextoNumOpositor.getText().matches("[1-9]{3}")){
+            throw new Exception("Hay que introducir un numero positivo");
         }
-        if(jComboBox1.getSelectedItem() == null){
-            throw new MyException(jComboBox1, "Debes seleccionar el tipo de prenda");
+        if(jCTextoNif.getText().matches("[1-9]{8}-[A-Z]{1}")){
+            throw new Exception("El nif introducido no es valido");
         }
-        if(jComboBox2.getSelectedItem() == null){
-            throw new MyException(jComboBox2, "Debes seleccionar el tipo de proveedor");
-        }
-        if(buttonGroup1.getSelection() == null){
-            throw new MyException(jRadioButton1, "Debes seleccionar si es o no talla especial");
-        }
-        if(gestora.existePrenda(new Prenda(codigo, (TipoPrenda)tipo, jRadioButton1.isSelected(), (Proveedor)proveedor) )){
-            throw new MyException(jButton1, "Nueva prenda almacenada");
+        if(jTextoApellidos.getText().matches("")){
+            throw new Exception("El apellidos no es valido");
         }
     }
-
-    private void procesar() {
-        String codigo = jTextField1.getText();
-        TipoPrenda tipo = (TipoPrenda)jComboBox1.getSelectedItem();
-        boolean especial = jRadioButton1.isSelected();
-        Proveedor proveedor = gestora.devolverProveedor(jComboBox2.getSelectedItem().toString());
-                
-        gestora.agregarPrenda(new Prenda(codigo, tipo, especial, proveedor));
+    private void procesar (){
+        Persona a = gestoraP.buscaPersona(jCTextoNumOpositor.getText(), jCTextoNif.getText(),jTextoApellidos.getText());
     }
-
-
 
 }
