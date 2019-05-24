@@ -10,7 +10,7 @@ package proyectooposiciones;
  * @author dam101
  */
 public class Persona {
-    int nOpo;
+    int numOpo;
     String nombre;
     String dni;
     float experiencia;
@@ -22,7 +22,7 @@ public class Persona {
     float totalNota;
 
     public Persona(int nOpo, String nombre, String dni, float experiencia, float titulos, float otros, float totalMeritos, float nota1, float nota2, float totalNota) {
-        this.nOpo = nOpo;
+        this.numOpo = nOpo;
         this.nombre = nombre;
         this.dni = dni;
         this.experiencia = experiencia;
@@ -42,8 +42,8 @@ public class Persona {
         return dni;
     }
 
-    public int getnOpo() {
-        return nOpo;
+    public int getnumOpo() {
+        return numOpo;
     }
     
     public float getNota1() {
