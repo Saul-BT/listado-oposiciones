@@ -11,11 +11,13 @@ package proyectooposiciones;
  */
 public class Ventana extends javax.swing.JFrame {
 
+    private final Persona[] lasPersonas;
     /**
      * Creates new form Ventana
      */
     public Ventana() {
         initComponents();
+        lasPersonas = GestoraArchivos.leerOpositores();
     }
 
     /**
@@ -204,7 +206,7 @@ public class Ventana extends javax.swing.JFrame {
     }//GEN-LAST:event_jBotonCancelarActionPerformed
 
     private void jPanelAprobadosComponentShown(java.awt.event.ComponentEvent evt) {//GEN-FIRST:event_jPanelAprobadosComponentShown
-        // TODO add your handling code here:
+        jtAprobados.setModel(new ModeloTablaAprobados(lasPersonas));
     }//GEN-LAST:event_jPanelAprobadosComponentShown
 
     private void jPanelMeritosComponentShown(java.awt.event.ComponentEvent evt) {//GEN-FIRST:event_jPanelMeritosComponentShown
