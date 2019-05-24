@@ -10,12 +10,15 @@ package proyectooposiciones;
  * @author dam102
  */
 public class Ventana extends javax.swing.JFrame {
-
+    GestoraArchivos gestora;
     /**
      * Creates new form Ventana
      */
     public Ventana() {
         initComponents();
+        GestoraArchivos gestora = new GestoraArchivos();
+        initComponents();
+        jtAprobados.setModel(new ModeloTablaAprobados(gestora.leerOpositores()));
     }
 
     /**
@@ -263,4 +266,38 @@ public class Ventana extends javax.swing.JFrame {
     private javax.swing.JTable jtAprobados;
     private javax.swing.JTable jtMeritos;
     // End of variables declaration//GEN-END:variables
+
+    private void comprobar() throws Exception {
+        String  = j.getText();
+        Object tipo = jComboBox1.getSelectedItem();
+        Object proveedor = jComboBox2.getSelectedItem();
+        
+        if(!jTextField1.getText().matches("(?i)[A-Z]{3}-\\d{2}")){
+            throw new MyException(jTextField1, "Hay que introducir un código de 3 letras y 2 dígitos numéricos");
+        }
+        if(jComboBox1.getSelectedItem() == null){
+            throw new MyException(jComboBox1, "Debes seleccionar el tipo de prenda");
+        }
+        if(jComboBox2.getSelectedItem() == null){
+            throw new MyException(jComboBox2, "Debes seleccionar el tipo de proveedor");
+        }
+        if(buttonGroup1.getSelection() == null){
+            throw new MyException(jRadioButton1, "Debes seleccionar si es o no talla especial");
+        }
+        if(gestora.existePrenda(new Prenda(codigo, (TipoPrenda)tipo, jRadioButton1.isSelected(), (Proveedor)proveedor) )){
+            throw new MyException(jButton1, "Nueva prenda almacenada");
+        }
+    }
+
+    private void procesar() {
+        String codigo = jTextField1.getText();
+        TipoPrenda tipo = (TipoPrenda)jComboBox1.getSelectedItem();
+        boolean especial = jRadioButton1.isSelected();
+        Proveedor proveedor = gestora.devolverProveedor(jComboBox2.getSelectedItem().toString());
+                
+        gestora.agregarPrenda(new Prenda(codigo, tipo, especial, proveedor));
+    }
+
+
+
 }
