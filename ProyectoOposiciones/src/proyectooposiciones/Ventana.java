@@ -45,6 +45,12 @@ public class Ventana extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
+        jPanelAprobados.addComponentListener(new java.awt.event.ComponentAdapter() {
+            public void componentShown(java.awt.event.ComponentEvent evt) {
+                jPanelAprobadosComponentShown(evt);
+            }
+        });
+
         jtAprobados.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
 
@@ -73,6 +79,12 @@ public class Ventana extends javax.swing.JFrame {
         );
 
         jPanelGeneral.addTab("LISTADO APROBADOS", jPanelAprobados);
+
+        jPanelMeritos.addComponentListener(new java.awt.event.ComponentAdapter() {
+            public void componentShown(java.awt.event.ComponentEvent evt) {
+                jPanelMeritosComponentShown(evt);
+            }
+        });
 
         jtMeritos.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -190,6 +202,14 @@ public class Ventana extends javax.swing.JFrame {
     private void jBotonCancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBotonCancelarActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jBotonCancelarActionPerformed
+
+    private void jPanelAprobadosComponentShown(java.awt.event.ComponentEvent evt) {//GEN-FIRST:event_jPanelAprobadosComponentShown
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jPanelAprobadosComponentShown
+
+    private void jPanelMeritosComponentShown(java.awt.event.ComponentEvent evt) {//GEN-FIRST:event_jPanelMeritosComponentShown
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jPanelMeritosComponentShown
 
     /**
      * @param args the command line arguments
