@@ -22,7 +22,7 @@ public class GestoraArchivos {
     private static final String ARCHIVO_NOTAS = "./archivos/Listado_Aprobados.csv";
     private static final String ARCHIVO_MERITOS = "./archivos/Listado_Meritos.csv";
     
-    private static Persona[] leerOpositores() {
+    static Persona[] leerOpositores() {
         BufferedReader lectorNotas = null;
         BufferedReader lectorMeritos = null;
         Persona[] opositores = null;

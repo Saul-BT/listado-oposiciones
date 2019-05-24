@@ -268,12 +268,12 @@ public class Ventana extends javax.swing.JFrame {
     // End of variables declaration//GEN-END:variables
 
     private void comprobar() throws Exception {
-        String  = j.getText();
-        Object tipo = jComboBox1.getSelectedItem();
-        Object proveedor = jComboBox2.getSelectedItem();
+        String num_opo = jCTextoNumOpositor.getText();
+        String nif = jCTextoNif.getText();
+        String apellidos = jTextoApellidos.getText();
         
-        if(!jTextField1.getText().matches("(?i)[A-Z]{3}-\\d{2}")){
-            throw new MyException(jTextField1, "Hay que introducir un código de 3 letras y 2 dígitos numéricos");
+        if(!jCTextoNumOpositor.getText().matches("(?i)[A-Z]{3}-\\d{2}")){
+            throw new Exception(jTextField1, "Hay que introducir un código de 3 letras y 2 dígitos numéricos");
         }
         if(jComboBox1.getSelectedItem() == null){
             throw new MyException(jComboBox1, "Debes seleccionar el tipo de prenda");
