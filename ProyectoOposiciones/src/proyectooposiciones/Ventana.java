@@ -210,7 +210,7 @@ public class Ventana extends javax.swing.JFrame {
     }//GEN-LAST:event_jPanelAprobadosComponentShown
 
     private void jPanelMeritosComponentShown(java.awt.event.ComponentEvent evt) {//GEN-FIRST:event_jPanelMeritosComponentShown
-        // TODO add your handling code here:
+        jtAprobados.setModel(new ModeloTablaMeritos(lasPersonas));
     }//GEN-LAST:event_jPanelMeritosComponentShown
 
     /**
@@ -265,4 +265,5 @@ public class Ventana extends javax.swing.JFrame {
     private javax.swing.JTable jtAprobados;
     private javax.swing.JTable jtMeritos;
     // End of variables declaration//GEN-END:variables
+
 }
