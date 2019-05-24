@@ -5,19 +5,28 @@
  */
 package proyectooposiciones;
 
+import java.lang.reflect.Array;
+import proyectooposiciones.GestoraPersona;
+
 /**
  *
  * @author dam102
  */
 public class Ventana extends javax.swing.JFrame {
-
     private final Persona[] lasPersonas;
+    GestoraArchivos gestora;
+    GestoraPersona gestoraP;
+    
     /**
      * Creates new form Ventana
      */
     public Ventana() {
         initComponents();
         lasPersonas = GestoraArchivos.leerOpositores();
+        GestoraArchivos gestora = new GestoraArchivos();
+        GestoraPersona gestoraP = new GestoraPersona();
+        initComponents();
+        jtAprobados.setModel(new ModeloTablaAprobados(gestora.leerOpositores()));
     }
 
     /**
@@ -266,4 +275,22 @@ public class Ventana extends javax.swing.JFrame {
     private javax.swing.JTable jtMeritos;
     // End of variables declaration//GEN-END:variables
 
+    private void comprobar() throws Exception {
+        String num_opo = jCTextoNumOpositor.getText();
+        String nif = jCTextoNif.getText();
+        String apellidos = jTextoApellidos.getText();
+        
+        if(!jCTextoNumOpositor.getText().matches("[1-9]{3}")){
+            throw new Exception("Hay que introducir un numero positivo");
+        }
+        if(jCTextoNif.getText().matches("[1-9]{8}-[A-Z]{1}")){
+            throw new Exception("El nif introducido no es valido");
+        }
+        if(jTextoApellidos.getText().matches("")){
+            throw new Exception("El apellidos no es valido");
+        }
+    }
+    private void procesar (){
+        Persona a = gestoraP.buscaPersona(jCTextoNumOpositor.getText(), jCTextoNif.getText(),jTextoApellidos.getText());
+    }
 }
