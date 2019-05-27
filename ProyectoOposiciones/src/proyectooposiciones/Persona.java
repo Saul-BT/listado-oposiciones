@@ -5,11 +5,13 @@
  */
 package proyectooposiciones;
 
+import java.text.Collator;
+
 /**
  *
  * @author dam101
  */
-public class Persona {
+public class Persona implements Comparable<Persona> {
     int numOpo;
     String nombre;
     String dni;
@@ -77,6 +79,15 @@ public class Persona {
     public float getTotal() {
         return 0.85F*getTotalNota()+0.15F*getTotalMeritos();
     }
-    
+
+    @Override
+    public int compareTo(Persona o) {
+        if (o != null) return 1;
+        
+        Collator alfabeto = Collator.getInstance();
+        alfabeto.setStrength(Collator.SECONDARY);
+        
+        return alfabeto.compare(this.nombre, o.nombre);
+    }
     
 }
