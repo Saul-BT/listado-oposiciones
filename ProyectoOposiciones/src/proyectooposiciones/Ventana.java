@@ -269,7 +269,7 @@ public class Ventana extends javax.swing.JFrame {
         String apellidos = ctApellidos.getText();
         
         if (numOpo==null && nif==null && apellidos==null){
-            throw new MiExcepcion(ctNif, "Troll a tu cueva");
+            throw new MiExcepcion(ctNif, "Necesito datos para realizar la búsqueda");
         }
         else{
             if(!numOpo.equals("") && !numOpo.matches("[0-9]+")){
@@ -287,7 +287,6 @@ public class Ventana extends javax.swing.JFrame {
     private void procesar (){
         Persona[] personasEncontradas = gestora.buscaPersonas(ctNumOpositor.getText(), ctNif.getText(),ctApellidos.getText());
         jtAprobados.setModel(new ModeloTablaAprobados(personasEncontradas));
-        System.out.println(personasEncontradas[0]);
     }
 
     private void limpiar() {

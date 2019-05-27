@@ -16,17 +16,16 @@ public class GestoraPersona {
     Persona[] lasPersonas = GestoraArchivos.LAS_PERSONAS;
 
     public Persona[] buscaPersonas(String nOpoStr, String dni, String nombre) {
-        int nOpo = Integer.parseInt(nOpoStr);
         ArrayList<Persona> buscadasTemp = new ArrayList();
         
         for (Persona persona : lasPersonas) {
-            if (persona.getnumOpo() == nOpo) {
+            if (nOpoStr.equals("") && persona.getnumOpo() == Integer.parseInt(nOpoStr)) {
                 buscadasTemp.add(persona);
             }
-            if (persona.getDni() != null && persona.getDni().matches(dni)) {
+            else if (dni.equals("") && persona.getDni().matches(dni)) {
                 buscadasTemp.add(persona);
             }
-            if (persona.getNombre() != null && persona.getNombre().matches("^"+dni+".*")) {
+            else if (nombre.equals("") && persona.getNombre().matches("^"+nombre+".*")) {
                 buscadasTemp.add(persona);
             }
         }
