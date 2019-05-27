@@ -5,9 +5,6 @@
  */
 package proyectooposiciones;
 
-import java.lang.reflect.Array;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import javax.swing.JComponent;
 import javax.swing.JOptionPane;
 import javax.swing.JTextField;
@@ -24,7 +21,7 @@ public class Ventana extends javax.swing.JFrame {
      */
     public Ventana() {
         initComponents();
-        lasPersonas = GestoraArchivos.lasPersonas;
+        lasPersonas = GestoraArchivos.LAS_PERSONAS;
     }
 
     /**
@@ -54,7 +51,8 @@ public class Ventana extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        jtAprobados.setModel(new ModeloTablaAprobados(GestoraArchivos.lasPersonas));
+        jtAprobados.setAutoCreateRowSorter(true);
+        jtAprobados.setModel(new ModeloTablaAprobados(GestoraArchivos.LAS_PERSONAS));
         jScrollPane1.setViewportView(jtAprobados);
 
         javax.swing.GroupLayout jPanelAprobadosLayout = new javax.swing.GroupLayout(jPanelAprobados);
@@ -82,6 +80,7 @@ public class Ventana extends javax.swing.JFrame {
             }
         });
 
+        jtMeritos.setAutoCreateRowSorter(true);
         jtMeritos.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
 

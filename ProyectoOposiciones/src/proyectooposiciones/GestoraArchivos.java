@@ -20,7 +20,7 @@ import java.util.logging.Logger;
  */
 public class GestoraArchivos {
 
-    public static final Persona[] lasPersonas = leerOpositores();
+    public static final Persona[] LAS_PERSONAS = leerOpositores();
     private static final String ARCHIVO_NOTAS = "./archivos/Listado_Aprobados.csv";
     private static final String ARCHIVO_MERITOS = "./archivos/Listado_Meritos.csv";
 
