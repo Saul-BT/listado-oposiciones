@@ -8,27 +8,23 @@ package proyectooposiciones;
 import java.lang.reflect.Array;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-import proyectooposiciones.GestoraPersona;
 
 /**
  *
  * @author dam102
  */
 public class Ventana extends javax.swing.JFrame {
-    private final Persona[] lasPersonas;
-    GestoraArchivos gestora;
-    GestoraPersona gestoraP;
+    private Persona[] lasPersonas;
     
     /**
      * Creates new form Ventana
      */
     public Ventana() {
         initComponents();
-        lasPersonas = GestoraArchivos.leerOpositores();
-        GestoraArchivos gestora = new GestoraArchivos();
-        GestoraPersona gestoraP = new GestoraPersona();
-        initComponents();
-        jtAprobados.setModel(new ModeloTablaAprobados(gestora.leerOpositores()));
+        lasPersonas = GestoraArchivos.lasPersonas;
+//        jtAprobados.setModel(new ModeloTablaAprobados(lasPersonas));
+//        jPanelAprobados.revalidate();
+//        jPanelAprobados.repaint();
     }
 
     /**
@@ -58,20 +54,7 @@ public class Ventana extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        jPanelAprobados.addComponentListener(new java.awt.event.ComponentAdapter() {
-            public void componentShown(java.awt.event.ComponentEvent evt) {
-                jPanelAprobadosComponentShown(evt);
-            }
-        });
-
-        jtAprobados.setModel(new javax.swing.table.DefaultTableModel(
-            new Object [][] {
-
-            },
-            new String [] {
-
-            }
-        ));
+        jtAprobados.setModel(new ModeloTablaAprobados(GestoraArchivos.lasPersonas));
         jScrollPane1.setViewportView(jtAprobados);
 
         javax.swing.GroupLayout jPanelAprobadosLayout = new javax.swing.GroupLayout(jPanelAprobados);
@@ -221,12 +204,8 @@ public class Ventana extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_jBotonCancelarActionPerformed
 
-    private void jPanelAprobadosComponentShown(java.awt.event.ComponentEvent evt) {//GEN-FIRST:event_jPanelAprobadosComponentShown
-        jtAprobados.setModel(new ModeloTablaAprobados(lasPersonas));
-    }//GEN-LAST:event_jPanelAprobadosComponentShown
-
     private void jPanelMeritosComponentShown(java.awt.event.ComponentEvent evt) {//GEN-FIRST:event_jPanelMeritosComponentShown
-        jtAprobados.setModel(new ModeloTablaMeritos(lasPersonas));
+        jtMeritos.setModel(new ModeloTablaMeritos(lasPersonas));
     }//GEN-LAST:event_jPanelMeritosComponentShown
 
     /**
@@ -298,7 +277,7 @@ public class Ventana extends javax.swing.JFrame {
         }
     }
     private void procesar (){
-        Persona a = gestoraP.buscaPersona(ctNumOpositor.getText(), ctNif.getText(),ctApellidos.getText());
-        System.out.println(a.toString());
+//        Persona a = gestoraP.buscaPersona(ctNumOpositor.getText(), ctNif.getText(),ctApellidos.getText());
+//        System.out.println(a.toString());
     }
 }
