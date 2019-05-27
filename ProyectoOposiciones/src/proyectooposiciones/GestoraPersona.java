@@ -13,8 +13,7 @@ import proyectooposiciones.Persona;
  * @author dam101
  */
 public class GestoraPersona {
-    GestoraArchivos gestora = new GestoraArchivos();
-    Persona[] lasPersonas = gestora.leerOpositores();
+    Persona[] lasPersonas = GestoraArchivos.lasPersonas;
     
     public Persona buscaPersona(String nOpo, String dni, String nombre) {
         if(nOpo != null){

@@ -5,9 +5,7 @@
  */
 package proyectooposiciones;
 
-import javax.swing.event.TableModelListener;
 import javax.swing.table.DefaultTableModel;
-import javax.swing.table.TableModel;
 
 /**
  *
@@ -46,12 +44,12 @@ public class ModeloTablaAprobados extends DefaultTableModel {
     @Override
     public Class<?> getColumnClass(int columnIndex) {
         Class<?>[] clases = {
-            int.class,
+            Integer.class,
             String.class,
             String.class,
-            float.class,
-            float.class,
-            float.class
+            Float.class,
+            Float.class,
+            Float.class
         };
         return clases[columnIndex];
     }
