@@ -25,10 +25,10 @@ public class GestoraPersona {
             if (persona.getnumOpo() == nOpo) {
                 buscadasTemp.add(persona);
             }
-            if (persona.getDni().matches(dni)) {
+            if (persona.getDni() != null && persona.getDni().matches(dni)) {
                 buscadasTemp.add(persona);
             }
-            if (persona.getNombre().matches("^"+dni+".*")) {
+            if (persona.getNombre() != null && persona.getNombre().matches("^"+dni+".*")) {
                 buscadasTemp.add(persona);
             }
         }

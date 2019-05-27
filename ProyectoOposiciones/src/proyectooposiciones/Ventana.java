@@ -23,6 +23,7 @@ public class Ventana extends javax.swing.JFrame {
     public Ventana() {
         initComponents();
         lasPersonas = GestoraArchivos.LAS_PERSONAS;
+        gestora = new GestoraPersona();
     }
 
     /**
@@ -286,6 +287,7 @@ public class Ventana extends javax.swing.JFrame {
     private void procesar (){
         Persona[] personasEncontradas = gestora.buscaPersonas(ctNumOpositor.getText(), ctNif.getText(),ctApellidos.getText());
         jtAprobados.setModel(new ModeloTablaAprobados(personasEncontradas));
+        System.out.println(personasEncontradas[0]);
     }
 
     private void limpiar() {
