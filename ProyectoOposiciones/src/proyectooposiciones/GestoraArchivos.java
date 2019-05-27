@@ -20,11 +20,11 @@ import java.util.logging.Logger;
  */
 public class GestoraArchivos {
 
-    private static Object[] l;
+    public static final Persona[] lasPersonas = leerOpositores();
     private static final String ARCHIVO_NOTAS = "./archivos/Listado_Aprobados.csv";
     private static final String ARCHIVO_MERITOS = "./archivos/Listado_Meritos.csv";
 
-    public static Persona[] leerOpositores() {
+    private static Persona[] leerOpositores() {
         BufferedReader lectorNotas = null;
         BufferedReader lectorMeritos = null;
         Persona[] opositores = null;
