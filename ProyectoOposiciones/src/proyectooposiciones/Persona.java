@@ -73,6 +73,10 @@ public class Persona {
     public float getTotalMeritos() {
         return totalMeritos;
     }
+
+    public float getTotal() {
+        return 0.85F*getTotalNota()+0.15F*getTotalMeritos();
+    }
     
     
 }

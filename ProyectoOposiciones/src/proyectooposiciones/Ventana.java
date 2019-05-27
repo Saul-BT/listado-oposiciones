@@ -23,7 +23,6 @@ public class Ventana extends javax.swing.JFrame {
         initComponents();
         GestoraArchivos gestora = new GestoraArchivos();
         GestoraPersona gestoraP = new GestoraPersona();
-        initComponents();
         jtAprobados.setModel(new ModeloTablaAprobados(gestora.leerOpositores()));
     }
 
