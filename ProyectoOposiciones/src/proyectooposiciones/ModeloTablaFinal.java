@@ -60,7 +60,7 @@ public class ModeloTablaFinal extends DefaultTableModel{
         Persona persona = lasPersonas[rowIndex];
         if (persona == null) return null;
         Object[] informacionPersona = {
-            this.lasPersonas[rowIndex].getnOpo(),
+            this.lasPersonas[rowIndex].getnumOpo(),
             this.lasPersonas[rowIndex].getDni(),
             this.lasPersonas[rowIndex].getNombre(),
             this.lasPersonas[rowIndex].getTotal(),
