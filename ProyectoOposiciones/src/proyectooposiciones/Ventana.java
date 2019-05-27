@@ -13,6 +13,7 @@ import proyectooposiciones.GestoraPersona;
  * @author dam102
  */
 public class Ventana extends javax.swing.JFrame {
+    private final Persona[] lasPersonas;
     GestoraArchivos gestora;
     GestoraPersona gestoraP;
     
@@ -21,6 +22,7 @@ public class Ventana extends javax.swing.JFrame {
      */
     public Ventana() {
         initComponents();
+        lasPersonas = GestoraArchivos.leerOpositores();
         GestoraArchivos gestora = new GestoraArchivos();
         GestoraPersona gestoraP = new GestoraPersona();
         jtAprobados.setModel(new ModeloTablaAprobados(gestora.leerOpositores()));
@@ -212,11 +214,11 @@ public class Ventana extends javax.swing.JFrame {
     }//GEN-LAST:event_jBotonCancelarActionPerformed
 
     private void jPanelAprobadosComponentShown(java.awt.event.ComponentEvent evt) {//GEN-FIRST:event_jPanelAprobadosComponentShown
-        // TODO add your handling code here:
+        jtAprobados.setModel(new ModeloTablaAprobados(lasPersonas));
     }//GEN-LAST:event_jPanelAprobadosComponentShown
 
     private void jPanelMeritosComponentShown(java.awt.event.ComponentEvent evt) {//GEN-FIRST:event_jPanelMeritosComponentShown
-        // TODO add your handling code here:
+        jtAprobados.setModel(new ModeloTablaMeritos(lasPersonas));
     }//GEN-LAST:event_jPanelMeritosComponentShown
 
     /**
@@ -290,5 +292,4 @@ public class Ventana extends javax.swing.JFrame {
     private void procesar (){
         Persona a = gestoraP.buscaPersona(jCTextoNumOpositor.getText(), jCTextoNif.getText(),jTextoApellidos.getText());
     }
-
 }
