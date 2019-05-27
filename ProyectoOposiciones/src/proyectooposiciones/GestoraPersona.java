@@ -17,7 +17,7 @@ public class GestoraPersona {
 
     Persona[] lasPersonas = GestoraArchivos.LAS_PERSONAS;
 
-    public Persona[] buscaPersona(String nOpoStr, String dni, String nombre) {
+    public Persona[] buscaPersonas(String nOpoStr, String dni, String nombre) {
         int nOpo = Integer.parseInt(nOpoStr);
         ArrayList<Persona> buscadasTemp = new ArrayList();
         
@@ -32,8 +32,7 @@ public class GestoraPersona {
                 buscadasTemp.add(persona);
             }
         }
-        return null;
-
+        
+        return buscadasTemp.toArray(new Persona[buscadasTemp.size()]);
     }
-
 }
