@@ -1,4 +1,6 @@
 package proyectooposiciones;
+
+import java.util.ArrayList;
 import proyectooposiciones.GestoraArchivos;
 import proyectooposiciones.Persona;
 
@@ -7,40 +9,31 @@ import proyectooposiciones.Persona;
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-
 /**
  *
  * @author dam101
  */
 public class GestoraPersona {
-    Persona[] lasPersonas = GestoraArchivos.lasPersonas;
-    
-    public Persona buscaPersona(String nOpo, String dni, String nombre) {
-        if(nOpo != null){
-           for(Persona persona : lasPersonas){
-               if(persona.getnumOpo()== Integer.parseInt(nOpo)){
-                   return persona;
-               }
-           }
-            
-        }
-        if(dni != null){
-            for(Persona persona : lasPersonas){
-               if(persona.getDni()== dni){
-                   return persona;
-               }
-           }
-        }
-        if(nombre != null){
-            for(Persona persona : lasPersonas){
-               if(persona.getNombre()== nombre){
-                   return persona;
-               }
-           }
+
+    Persona[] lasPersonas = GestoraArchivos.LAS_PERSONAS;
+
+    public Persona[] buscaPersona(String nOpoStr, String dni, String nombre) {
+        int nOpo = Integer.parseInt(nOpoStr);
+        ArrayList<Persona> buscadasTemp = new ArrayList();
         
+        for (Persona persona : lasPersonas) {
+            if (persona.getnumOpo() == nOpo) {
+                buscadasTemp.add(persona);
+            }
+            if (persona.getDni().matches(dni)) {
+                buscadasTemp.add(persona);
+            }
+            if (persona.getNombre().matches("^"+dni+".*")) {
+                buscadasTemp.add(persona);
+            }
         }
         return null;
 
     }
 
-    }
+}
