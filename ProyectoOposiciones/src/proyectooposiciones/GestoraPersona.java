@@ -1,8 +1,6 @@
 package proyectooposiciones;
 
 import java.util.ArrayList;
-import proyectooposiciones.GestoraArchivos;
-import proyectooposiciones.Persona;
 
 /*
  * To change this license header, choose License Headers in Project Properties.
