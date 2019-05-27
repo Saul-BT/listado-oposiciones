@@ -6,6 +6,8 @@
 package proyectooposiciones;
 
 import java.lang.reflect.Array;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import proyectooposiciones.GestoraPersona;
 
 /**
@@ -50,9 +52,9 @@ public class Ventana extends javax.swing.JFrame {
         jLabel3 = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
-        jCTextoNumOpositor = new javax.swing.JTextField();
-        jCTextoNif = new javax.swing.JTextField();
-        jTextoApellidos = new javax.swing.JTextField();
+        ctNumOpositor = new javax.swing.JTextField();
+        ctNif = new javax.swing.JTextField();
+        ctApellidos = new javax.swing.JTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -159,15 +161,15 @@ public class Ventana extends javax.swing.JFrame {
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                         .addComponent(jLabel2)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 36, Short.MAX_VALUE)
-                        .addComponent(jTextoApellidos, javax.swing.GroupLayout.PREFERRED_SIZE, 121, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(ctApellidos, javax.swing.GroupLayout.PREFERRED_SIZE, 121, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLabel1)
                             .addComponent(jLabel3))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(jCTextoNumOpositor, javax.swing.GroupLayout.DEFAULT_SIZE, 121, Short.MAX_VALUE)
-                            .addComponent(jCTextoNif))))
+                            .addComponent(ctNumOpositor, javax.swing.GroupLayout.DEFAULT_SIZE, 121, Short.MAX_VALUE)
+                            .addComponent(ctNif))))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jBotonBuscar, javax.swing.GroupLayout.PREFERRED_SIZE, 115, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -182,7 +184,7 @@ public class Ventana extends javax.swing.JFrame {
                     .addGroup(layout.createSequentialGroup()
                         .addGap(32, 32, 32)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jCTextoNumOpositor, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(ctNumOpositor, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jBotonBuscar)))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -192,11 +194,11 @@ public class Ventana extends javax.swing.JFrame {
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabel1)
-                            .addComponent(jCTextoNif, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(ctNif, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(15, 15, 15)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabel2)
-                            .addComponent(jTextoApellidos, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addComponent(ctApellidos, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(25, 25, 25)
                         .addComponent(jBotonCancelar)))
@@ -207,7 +209,12 @@ public class Ventana extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jBotonBuscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBotonBuscarActionPerformed
-        // TODO add your handling code here:
+        try {
+            comprobar();
+            procesar();
+        } catch (Exception ex) {
+            System.out.println("Guay");
+        }
     }//GEN-LAST:event_jBotonBuscarActionPerformed
 
     private void jBotonCancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBotonCancelarActionPerformed
@@ -258,10 +265,11 @@ public class Ventana extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JTextField ctApellidos;
+    private javax.swing.JTextField ctNif;
+    private javax.swing.JTextField ctNumOpositor;
     private javax.swing.JButton jBotonBuscar;
     private javax.swing.JButton jBotonCancelar;
-    private javax.swing.JTextField jCTextoNif;
-    private javax.swing.JTextField jCTextoNumOpositor;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
@@ -270,27 +278,27 @@ public class Ventana extends javax.swing.JFrame {
     private javax.swing.JPanel jPanelMeritos;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
-    private javax.swing.JTextField jTextoApellidos;
     private javax.swing.JTable jtAprobados;
     private javax.swing.JTable jtMeritos;
     // End of variables declaration//GEN-END:variables
 
     private void comprobar() throws Exception {
-        String num_opo = jCTextoNumOpositor.getText();
-        String nif = jCTextoNif.getText();
-        String apellidos = jTextoApellidos.getText();
+        String numOpo = ctNumOpositor.getText();
+        String nif = ctNif.getText();
+        String apellidos = ctApellidos.getText();
         
-        if(!jCTextoNumOpositor.getText().matches("[1-9]{3}")){
+        if(!numOpo.matches("[0-9]+")){
             throw new Exception("Hay que introducir un numero positivo");
         }
-        if(jCTextoNif.getText().matches("[1-9]{8}-[A-Z]{1}")){
+        if(!nif.matches("(?i)[0-9]{8}[A-Z]")){
             throw new Exception("El nif introducido no es valido");
         }
-        if(jTextoApellidos.getText().matches("")){
+        if(!apellidos.matches("(?i)[A-ZÁÉÍÓÚÑ]+")){
             throw new Exception("El apellidos no es valido");
         }
     }
     private void procesar (){
-        Persona a = gestoraP.buscaPersona(jCTextoNumOpositor.getText(), jCTextoNif.getText(),jTextoApellidos.getText());
+        Persona a = gestoraP.buscaPersona(ctNumOpositor.getText(), ctNif.getText(),ctApellidos.getText());
+        System.out.println(a.toString());
     }
 }

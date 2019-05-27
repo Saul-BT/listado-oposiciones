@@ -33,7 +33,7 @@
                   <Group type="102" alignment="1" attributes="0">
                       <Component id="jLabel2" min="-2" max="-2" attributes="0"/>
                       <EmptySpace pref="36" max="32767" attributes="0"/>
-                      <Component id="jTextoApellidos" min="-2" pref="121" max="-2" attributes="0"/>
+                      <Component id="ctApellidos" min="-2" pref="121" max="-2" attributes="0"/>
                   </Group>
                   <Group type="102" alignment="1" attributes="0">
                       <Group type="103" groupAlignment="0" attributes="0">
@@ -42,8 +42,8 @@
                       </Group>
                       <EmptySpace min="22" max="32767" attributes="0"/>
                       <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                          <Component id="jCTextoNumOpositor" pref="121" max="32767" attributes="0"/>
-                          <Component id="jCTextoNif" max="32767" attributes="0"/>
+                          <Component id="ctNumOpositor" pref="121" max="32767" attributes="0"/>
+                          <Component id="ctNif" max="32767" attributes="0"/>
                       </Group>
                   </Group>
               </Group>
@@ -64,7 +64,7 @@
                   <Group type="102" attributes="0">
                       <EmptySpace min="-2" pref="32" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="3" attributes="0">
-                          <Component id="jCTextoNumOpositor" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="ctNumOpositor" alignment="3" min="-2" max="-2" attributes="0"/>
                           <Component id="jBotonBuscar" alignment="3" min="-2" max="-2" attributes="0"/>
                       </Group>
                   </Group>
@@ -78,12 +78,12 @@
                   <Group type="102" attributes="0">
                       <Group type="103" groupAlignment="3" attributes="0">
                           <Component id="jLabel1" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="jCTextoNif" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="ctNif" alignment="3" min="-2" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace min="-2" pref="15" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="3" attributes="0">
                           <Component id="jLabel2" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="jTextoApellidos" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="ctApellidos" alignment="3" min="-2" max="-2" attributes="0"/>
                       </Group>
                   </Group>
                   <Group type="102" attributes="0">
@@ -236,11 +236,11 @@
         <Property name="text" type="java.lang.String" value="APELLIDOS"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JTextField" name="jCTextoNumOpositor">
+    <Component class="javax.swing.JTextField" name="ctNumOpositor">
     </Component>
-    <Component class="javax.swing.JTextField" name="jCTextoNif">
+    <Component class="javax.swing.JTextField" name="ctNif">
     </Component>
-    <Component class="javax.swing.JTextField" name="jTextoApellidos">
+    <Component class="javax.swing.JTextField" name="ctApellidos">
     </Component>
   </SubComponents>
 </Form>
