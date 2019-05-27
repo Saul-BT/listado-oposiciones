@@ -15,6 +15,7 @@ import javax.swing.JTextField;
  */
 public class Ventana extends javax.swing.JFrame {
     private Persona[] lasPersonas;
+    private GestoraPersona gestora;
     
     /**
      * Creates new form Ventana
@@ -51,7 +52,6 @@ public class Ventana extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        jtAprobados.setAutoCreateRowSorter(true);
         jtAprobados.setModel(new ModeloTablaAprobados(GestoraArchivos.LAS_PERSONAS));
         jScrollPane1.setViewportView(jtAprobados);
 
@@ -80,7 +80,6 @@ public class Ventana extends javax.swing.JFrame {
             }
         });
 
-        jtMeritos.setAutoCreateRowSorter(true);
         jtMeritos.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
 
@@ -203,7 +202,7 @@ public class Ventana extends javax.swing.JFrame {
     }//GEN-LAST:event_jBotonBuscarActionPerformed
 
     private void jBotonCancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBotonCancelarActionPerformed
-        // TODO add your handling code here:
+        limpiar();
     }//GEN-LAST:event_jBotonCancelarActionPerformed
 
     private void jPanelMeritosComponentShown(java.awt.event.ComponentEvent evt) {//GEN-FIRST:event_jPanelMeritosComponentShown
@@ -268,18 +267,30 @@ public class Ventana extends javax.swing.JFrame {
         String nif = ctNif.getText();
         String apellidos = ctApellidos.getText();
         
-        if(!numOpo.matches("[0-9]+")){
-            throw new MiExcepcion(ctNumOpositor, "Hay que introducir un numero positivo");
+        if (numOpo==null && nif==null && apellidos==null){
+            throw new MiExcepcion(ctNif, "Troll a tu cueva");
         }
-        if(!nif.matches("(?i)[0-9]{8}[A-Z]")){
-            throw new MiExcepcion(ctNif, "El nif introducido no es valido");
+        else{
+            if(!numOpo.equals("") && !numOpo.matches("[0-9]+")){
+                throw new MiExcepcion(ctNumOpositor, "Hay que introducir un numero positivo");
+            }
+            if(!nif.equals("") && !nif.matches("(?i)[0-9]{8}[A-Z]")){
+                throw new MiExcepcion(ctNif, "El nif introducido no es valido");
+            }
+            if(!apellidos.equals("") && !apellidos.matches("(?i)[A-ZÁÉÍÓÚÑ]+")){
+                throw new MiExcepcion(ctApellidos, "El apellidos no es valido");
+            }
         }
-        if(!apellidos.matches("(?i)[A-ZÁÉÍÓÚÑ]+")){
-            throw new MiExcepcion(ctApellidos, "El apellidos no es valido");
-        }
+        
     }
     private void procesar (){
-//        Persona a = gestoraP.buscaPersona(ctNumOpositor.getText(), ctNif.getText(),ctApellidos.getText());
-//        System.out.println(a.toString());
+        Persona[] personasEncontradas = gestora.buscaPersonas(ctNumOpositor.getText(), ctNif.getText(),ctApellidos.getText());
+        jtAprobados.setModel(new ModeloTablaAprobados(personasEncontradas));
+    }
+
+    private void limpiar() {
+        ctNumOpositor.setText(null);
+        ctNif.setText(null);
+        ctApellidos.setText(null);
     }
 }
