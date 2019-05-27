@@ -8,6 +8,9 @@ package proyectooposiciones;
 import java.lang.reflect.Array;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.swing.JComponent;
+import javax.swing.JOptionPane;
+import javax.swing.JTextField;
 
 /**
  *
@@ -22,9 +25,6 @@ public class Ventana extends javax.swing.JFrame {
     public Ventana() {
         initComponents();
         lasPersonas = GestoraArchivos.lasPersonas;
-//        jtAprobados.setModel(new ModeloTablaAprobados(lasPersonas));
-//        jPanelAprobados.revalidate();
-//        jPanelAprobados.repaint();
     }
 
     /**
@@ -195,8 +195,11 @@ public class Ventana extends javax.swing.JFrame {
         try {
             comprobar();
             procesar();
-        } catch (Exception ex) {
-            System.out.println("Guay");
+        } catch (MiExcepcion ex) {
+            JComponent elComponente = ex.getComponente();
+            JOptionPane.showMessageDialog(this, ex.getMessage());
+            elComponente.requestFocus();
+            ((JTextField) elComponente).selectAll();
         }
     }//GEN-LAST:event_jBotonBuscarActionPerformed
 
@@ -261,19 +264,19 @@ public class Ventana extends javax.swing.JFrame {
     private javax.swing.JTable jtMeritos;
     // End of variables declaration//GEN-END:variables
 
-    private void comprobar() throws Exception {
+    private void comprobar() throws MiExcepcion {
         String numOpo = ctNumOpositor.getText();
         String nif = ctNif.getText();
         String apellidos = ctApellidos.getText();
         
         if(!numOpo.matches("[0-9]+")){
-            throw new Exception("Hay que introducir un numero positivo");
+            throw new MiExcepcion(ctNumOpositor, "Hay que introducir un numero positivo");
         }
         if(!nif.matches("(?i)[0-9]{8}[A-Z]")){
-            throw new Exception("El nif introducido no es valido");
+            throw new MiExcepcion(ctNif, "El nif introducido no es valido");
         }
         if(!apellidos.matches("(?i)[A-ZÁÉÍÓÚÑ]+")){
-            throw new Exception("El apellidos no es valido");
+            throw new MiExcepcion(ctApellidos, "El apellidos no es valido");
         }
     }
     private void procesar (){
