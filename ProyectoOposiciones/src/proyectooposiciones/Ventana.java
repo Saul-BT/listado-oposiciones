@@ -286,8 +286,13 @@ public class Ventana extends javax.swing.JFrame {
     }
     private void procesar (){
         Persona[] personasEncontradas = gestora.buscaPersonas(ctNumOpositor.getText(), ctNif.getText(),ctApellidos.getText());
-        jtAprobados.setModel(new ModeloTablaAprobados(personasEncontradas));
-        System.out.println(personasEncontradas[0]);
+        if (jPanelAprobados.isShowing()) {
+            jtAprobados.setModel(new ModeloTablaAprobados(personasEncontradas));
+        }
+        if(jPanelMeritos.isShowing()) {
+            jtMeritos.setModel(new ModeloTablaMeritos(personasEncontradas));
+        }
+        
     }
 
     private void limpiar() {
